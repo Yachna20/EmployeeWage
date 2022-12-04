@@ -1,32 +1,40 @@
-﻿internal class Program
+﻿class Program
 {
+    public const int part_time = 1;
+    public const int Full_time = 2;
+    public const int Emp_Rate_Per_Hr = 20;
     static void Main(string[] args)
     {
-        int fulltime = 1, Part_time = 2, Emp_Rate_Per_Hr = 20, empHrs = 0, empwage = 0;
-        Random randobj = new Random();
-        int checkPresent = randobj.Next(0, 3);
-        Console.WriteLine("Random number" + checkPresent);
-        if (checkPresent == fulltime)
+        int empHrs = 0;
+        int empwage = 0;
+        Random random = new Random();
+        int empCheck = random.Next(0, 3);
+        switch (empCheck)
         {
-            empHrs = 8;
-
-            Console.WriteLine("Employee is present");
-        }
-        else if (checkPresent == Part_time)
-        {
-            empHrs = 4;
-            Console.WriteLine("Employee is present part-time");
-        }
-        else
-        {
-            empHrs = 0;
-
-            Console.WriteLine("Employee is absent");
+            case part_time:
+                empHrs = 4;
+                break;
+            case Full_time:
+                empHrs = 8;
+                break;
+            default:
+                empHrs = 0;
+                break;
         }
         empwage = empHrs * Emp_Rate_Per_Hr;
         Console.WriteLine("Employee wage:" + empwage);
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
