@@ -2,16 +2,12 @@
 {
     public const int part_time = 1;
     public const int Full_time = 2;
-    public const int Emp_Rate_Per_Hr = 20;
-    public const int No_Of_Working_Days = 20;
-    public const int Max_Hrs_In_Month = 100;
-    public static int computeEmpWage()
+    public static int computeEmpWage(string company, int empRatePerHr, int NoOfWorkingDays, int maxHrsPerMonth)
     {
         int empHrs = 0;
-        int totalEmpWage = 0;
         int totalWorkingDays = 0;
         int totalEmpHrs = 0;
-        while (totalEmpHrs <= Max_Hrs_In_Month && totalWorkingDays < No_Of_Working_Days)
+        while (totalEmpHrs <= maxHrsPerMonth && totalWorkingDays < NoOfWorkingDays)
         {
             totalWorkingDays++;
             Random random = new Random();
@@ -32,13 +28,14 @@
             Console.WriteLine("Days:" + totalWorkingDays + "Emp Hrs :" + empHrs);
         }
 
-        totalEmpWage = totalEmpHrs * Emp_Rate_Per_Hr;
+        int totalEmpWage = totalEmpHrs * empRatePerHr;
         Console.WriteLine("Total Employee Wage: " + totalEmpWage);
         return totalEmpWage;
     }
     static void Main(string[] args)
     {
-        computeEmpWage();
+        computeEmpWage("Infosys", 20, 20, 100);
+        computeEmpWage("Reliance", 40, 25, 100);
     }
 }
 
